@@ -62,27 +62,25 @@
     
             <nav class="row header-nav-wrap">
                 <ul class="header-nav">
-                    <li><a class="smoothscroll" href="{% static '#hero' %}" title="Intro">Home</a></li>
-                    <li><a class="smoothscroll" href="{% static '#about' %}" title="About">About</a></li>
-                    <li><a class="smoothscroll" href="{% static '#services' %}" title="Services">Services</a></li>
-                    <li><a class="smoothscroll" href="{% static '#portfolio' %}" title="Works">Works</a></li>
-                    <li><a href="{% static 'mailto:#0" title="Contact us' %}">Say Hello</a></li>
+                    <li><a class="smoothscroll" href="#hero" title="Intro">Home</a></li>
+                    <li><a class="smoothscroll" href="#about" title="About">About</a></li>
+                    <li><a class="smoothscroll" href="#services" title="Services">Services</a></li>
+                    <li><a class="smoothscroll" href="#portfolio" title="Works">Works</a></li>
+                    <li><a href="mailto:maansiverma8@gmail.com" title="Contact us'">Say Hello</a></li>
                 </ul>
             </nav> <!-- end header-nav-wrap -->
 
-            <a href="{% static '#0" class="btn btn--stroke btn--small' %}">Download CV</a>
+            <a href="{% static 'Maansi resume1.pdf' %}" class="btn btn--stroke btn--small' %}">Download CV</a>
 
         </div> <!-- end header-content -->
 
         <a class="header-menu-toggle" href="{% static '#0' %}"><span>Menu</span></a>
 
     </header> 
-
-
-    <!-- hero
-    ================================================== -->
-    <section id="hero" class="s-hero target-section" data-parallax="scroll" data-image-src= "{{abt.backimg.url}}"  data-natural-width=3000 data-natural-height=2000 data-position-y=center>
-
+    <!-- her================================================== -->
+    {% for abts in abt %}
+    <section id="hero" class="s-hero target-section" data-parallax="scroll" data-image-src= "{{abts.backimg.url}}"  data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+    {% endfor %}
         <div class="row hero-content">
 
             <div class="column large-full">
@@ -96,7 +94,7 @@
 
                 <ul class="hero-social">
                     <li>
-                        <a href="{% static '#0' %}" title="">Linkedin</a>
+                        <a href="https://www.linkedin.com/in/maansiverma8/" title="">Linkedin</a>
                     </li>
                     <li>
                         <a href="https://www.hackerearth.com/@maansi3" title="">Hackerearth</a>
@@ -107,7 +105,9 @@
                 </ul> <!-- end hero-social -->
 
             </div> 
-
+            <div class="column large-full">
+                <a href="maansiverma8@gmail.com" class="btn btn--primary">Get in Touch</a>
+            </div>
         </div> <!-- end hero-content -->
 
         <div class="hero-scroll">
@@ -118,8 +118,9 @@
 
     </section> <!-- end s-hero -->
 
+    
 
-    <!-- about
+<!-- about
     ================================================== -->
     <section id="about" class="s-about target-section">
 
@@ -129,23 +130,22 @@
 
             <div class="row">
                 <div class="column large-6 medium-8 tab-full">
-
+                    {% for abts in abt %}
                     <div class="section-intro" data-num="01" data-aos="fade-up">
                         <h3 class="subhead">About Me</h3>
-                        <h1 class="display-1">{{ abt.head }}</h1>
+                        <h1 class="display-1">{{ abts.head }}</h1>
                     </div>
 
                     <div class="profile-pic" data-aos="fade-up">
-                        <img src="{{abt.profimg.url}}" 
-                             >
+                        <img src="{{abts.profimg.url}}" >
                     </div>      
 
                     <h3 data-aos="fade-up">Profile</h3>
 
                     <p data-aos="fade-up">
-                    {{ abt.about }} 
+                    {{ abts.about }} 
                     </p>
-
+                    {% endfor %}
                 </div>
             </div>
 
@@ -160,83 +160,26 @@
             </div>
 
             <div class="row block-large-1-2 block-900-full work-positions">
-
+                {% for careers in career %}
                 <div class="column" data-aos="fade-up">
                     <div class="position">
                         <div class="position__header">
                             <h6>
-                                <span class="position__co">Google</span>
-                                <span class="position__pos">Product Designer</span>
+                                <span class="position__co">{{careers.company}}</span>
+                                <span class="position__pos">{{careers.post}}</span>
                             </h6>
                             <div class="position__timeframe">
-                                June 2017 - Present
+                                {{careers.duration}}
                             </div>
                         </div>
 
                         <p>
-                        Pellentesque posuere. Etiam rhoncus. Praesent blandit laoreet nibh. 
-                        Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, 
-                        eu sollicitudin urna dolor sagittis lacus. 
+                            {{careers.job_desc}} 
                         </p>
                     </div>
                 </div> <!-- end column -->
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co">Facebook</span>
-                                <span class="position__pos">UX Director</span>
-                            </h6>
-                            <div class="position__timeframe">
-                                August 2015 - June 2017
-                            </div>
-                        </div>
-
-                        <p>
-                        Aliquam erat volutpat. Phasellus volutpat, metus eget egestas mollis, 
-                        lacus lacus blandit dui, id egestas quam mauris ut lacus. Pellentesque 
-                        dapibus hendrerit tortor. 
-                        </p>
-                    </div>
-                </div> <!-- end column -->
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co">Dropbox</span>
-                                <span class="position__pos">Mobile App Designer</span>
-                            </h6>
-                            <div class="position__timeframe">
-                                April 2014 - August 2015
-                            </div>
-                        </div>
-
-                        <p>
-                        In hac habitasse platea dictumst. Donec pede justo, fringilla vel, aliquet nec, 
-                        vulputate eget, arcu. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.
-                        Phasellus volutpat, metus eget.
-                        </p>
-                    </div>
-                </div> <!-- end column -->
-                <div class="column" data-aos="fade-up">
-                    <div class="position">
-                        <div class="position__header">
-                            <h6>
-                                <span class="position__co">Microsoft</span>
-                                <span class="position__pos">Product Designer</span>
-                            </h6>
-                            <div class="position__timeframe">
-                                June 2012 - February 2014
-                            </div>
-                        </div>
-
-                        <p>
-                        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. 
-                        Curabitur blandit mollis lacus. Curabitur vestibulum aliquam leo. 
-                        Vivamus in erat ut urna cursus vestibulum.
-                        </p>
-                    </div>
-                </div> <!-- end column -->
+                {% endfor %}
+                
 
             </div> <!-- work positions -->
 
@@ -252,106 +195,35 @@
         <div class="row s-services__content">
 
             <div class="vert-line"></div>
-
+            
             <div class="column large-6 s-services__leftcol">
                 <div class="section-intro" data-num="02" data-aos="fade-up">
                     <h3 class="subhead">Expertise</h3>
-
+                    {% for twos in two1 %}
                     <h1 class="display-1">
-                    I focus on crafting web experiences
-                    and designs that works.
+                    {{twos.header}}
                     </h1>
                 </div>
 
                 <p class="lead" data-aos="fade-up">
-                Suspendisse eu ligula. Duis arcu tortor, suscipit eget, 
-                imperdiet nec, imperdiet iaculis, ipsum. Nulla facilisi.
-                Etiam rhoncus. Praesent blandit laoreet nibh.
-                Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
-                Cras sagittis. Praesent egestas tristique nibh.
+                    {{twos.desc}}
                 </p>
             </div> <!-- end  s-services--leftcol -->
-
+            {% endfor %}
             <div class="column large-6">
                 <ul class="services-list" data-aos="fade-up">
-                    <li class="services-list__item is-active">
-                        <div class="services-list__item-header">
-                            <h5>Product Design</h5>
-                        </div>
-                        <div class="services-list__item-body">
-                            <p>
-                            Fusce egestas elit eget lorem. Donec venenatis vulputate lorem. 
-                            Nam at tortor in tellus interdum sagittis. Vestibulum fringilla 
-                            pede sit amet augue. Praesent blandit laoreet nibh.
-                            Donec quam felis, ultricies nec, pellentesque eu.
-                            </p>
-                        </div>
-                    </li> <!-- services-list__item -->
+                    {% for two in two2 %}
                     <li class="services-list__item">
                         <div class="services-list__item-header">
-                            <h5>Branding</h5>
+                            <h5>{{two.features}}</h5>
                         </div>
                         <div class="services-list__item-body">
                             <p>
-                            Sed cursus turpis vitae tortor. Sed aliquam ultrices mauris. 
-                            Fusce fermentum. Curabitur turpis. Nunc egestas, augue at pellentesque 
-                            laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. 
-                            In consectetuer turpis ut velit. Curabitur at lacus.
+                                {{two.features_desc}}
                             </p>
                         </div>
-                    </li> <!-- services-list__item -->
-                    <li class="services-list__item">
-                        <div class="services-list__item-header">
-                            <h5>Frontend Development</h5>
-                        </div>
-                        <div class="services-list__item-body">
-                            <p>
-                            Suspendisse non nisl sit amet velit hendrerit rutrum. Etiam vitae tortor. 
-                            Ut tincidunt tincidunt erat. Praesent nonummy mi in odio. Praesent ut 
-                            ligula non mi varius sagittis. Curabitur turpis. Nunc egestas, augue at pellentesque 
-                            laoreet, felis eros vehicula leo, at malesuada velit leo quis pede.
-                            </p>
-                        </div>
-                    </li> <!-- services-list__item -->
-                    <li class="services-list__item">
-                        <div class="services-list__item-header">
-                            <h5>UX Research</h5>
-                        </div>
-                        <div class="services-list__item-body">
-                            <p>
-                            Nullam quis ante. Sed libero. Curabitur at lacus ac velit ornare lobortis. 
-                            Morbi nec metus. Aenean vulputate eleifend tellus. Nullam vel sem. Nam ipsum risus, 
-                            rutrum vitae, vestibulum eu, molestie vel, lacus. Phasellus ullamcorper ipsum rutrum nunc. 
-                            Cras dapibus. Praesent egestas neque eu enim.
-                            </p>
-                        </div>
-                    </li> <!-- services-list__item -->
-                    <li class="services-list__item">
-                        <div class="services-list__item-header">
-                            <h5>Visual Design</h5>
-                        </div>
-                        <div class="services-list__item-body">
-                            <p>
-                            Ut id nisl quis enim dignissim sagittis. Pellentesque egestas, neque sit amet convallis 
-                            pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Phasellus volutpat, 
-                            metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. 
-                            Cras dapibus. Praesent adipiscing.
-                            </p>
-                        </div>
-                    </li> <!-- services-list__item -->
-                    <li class="services-list__item">
-                        <div class="services-list__item-header">
-                            <h5>E-Commerce</h5>
-                        </div>
-                        <div class="services-list__item-body">
-                            <p>
-                            Praesent ac sem eget est egestas volutpat. Nam pretium turpis et arcu. Quisque ut nisi. 
-                            Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque 
-                            ante vel mi. Phasellus dolor. Aenean vulputate eleifend tellus. Nullam vel sem. Nam ipsum risus, 
-                            rutrum vitae, vestibulum eu, molestie vel.
-                            </p>
-                        </div>
-                    </li> <!-- services-list__item -->
+                    </li>
+                    {% endfor %} 
                 </ul> <!-- end services-list -->
             </div>
 
@@ -376,115 +248,24 @@
         </div> <!-- s-porfolio__header -->
 
         <div class="row s-porfolio__list block-large-1-2 block-tab-full collapse">
-
+            {% for projects in project %}
             <div class="column" data-aos="fade-up">
                 <div class="folio-item">
                     <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="{% static 'images/portfolio/gallery/g-windows-in-the-city.jpg' %}" title="Windows in The City" data-size="1050x700">
-                            <img src="{% static 'images/portfolio/windows-in-the-city.jpg" 
-                                 srcset="{% static 'images/portfolio/windows-in-the-city.jpg 1x, images/portfolio/windows-in-the-city@2x.jpg 2x' %}" alt="">
-                        </a>
+                        <a class="folio-item__thumb-link" href="{{ projects.image.url }}" title="Windows in The City" data-size="1050x700">
+                            <img src="{{ projects.image.url }}" ></a>
                     </div>
                     <div class="folio-item__info">
-                        <div class="folio-item__cat">Branding</div>
-                        <h4 class="folio-item__title">Windows in The City</h4>
+                        <div class="folio-item__cat">{{ projects.feature }}</div>
+                        <h4 class="folio-item__title">{{ projects.name }}</h4>
                     </div>
                     <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Project Link</a>
                     <div class="folio-item__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        <p>{{ projects.desc }}</p>
                     </div>
                 </div>
             </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="{% static 'images/portfolio/gallery/g-building-blocks.jpg' %}" title="Building Blocks" data-size="1050x700">
-                            <img src="{% static 'images/portfolio/building-blocks.jpg' %}" 
-                                 srcset="{% static 'images/portfolio/building-blocks.jpg 1x, images/portfolio/building-blocks@2x.jpg 2x' %}" alt="">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Frontend Design</div>
-                        <h4 class="folio-item__title">Building Blocks</h4>
-                    </div>
-                    <a href="{% static 'https://www.behance.net/' %}" title="Project Link" class="folio-item__project-link">Project Link</a>
-                    <div class="folio-item__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="{% static 'images/portfolio/gallery/g-shout-jump.jpg' %}" Title="Shout and Jump" data-size="1050x700">
-                            <img src="{% static 'images/portfolio/shout-and-jump.jpg' %}" 
-                                 srcset="{% static 'images/portfolio/shout-and-jump.jpg 1x, images/portfolio/shout-and-jump@2x.jpg 2x' %}" alt="">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Branding</div>
-                        <h4 class="folio-item__title">Shout & Jump</h4>
-                    </div>
-                    <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Project Link</a>
-                    <div class="folio-item__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="{% static 'images/portfolio/gallery/g-sand-dunes.jpg' %}" title="Sand Dunes" data-size="1050x700">
-                            <img src="{% static 'images/portfolio/sand-dunes.jpg' %}" 
-                                 srcset="{% static 'images/portfolio/sand-dunes.jpg 1x, images/portfolio/sand-dunes@2x.jpg 2x' %}" alt="">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Frontend Design</div>
-                        <h4 class="folio-item__title">Sand Dunes</h4>
-                    </div>
-                    <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Project Link</a>
-                    <div class="folio-item__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="{% static 'images/portfolio/gallery/g-woodcraft.jpg' %}" title="Sand Dunes" data-size="1050x700">
-                            <img src="{% static 'images/portfolio/woodcraft.jpg' %}" 
-                                 srcset="{% static 'images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x' %}" alt="">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Product Design</div>
-                        <h4 class="folio-item__title">Wooocraft</h4>
-                    </div>
-                    <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Project Link</a>
-                    <div class="folio-item__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
-            <div class="column" data-aos="fade-up">
-                <div class="folio-item">
-                    <div class="folio-item__thumb">
-                        <a class="folio-item__thumb-link" href="{% static 'images/portfolio/gallery/g-lamp.jpg' %}" title="The Lamp" data-size="1050x700">
-                            <img src="{% static 'images/portfolio/lamp.jpg' %}" 
-                                 srcset="{% static 'images/portfolio/lamp.jpg 1x, images/portfolio/lamp@2x.jpg 2x' %}" alt="">
-                        </a>
-                    </div>
-                    <div class="folio-item__info">
-                        <div class="folio-item__cat">Product Design</div>
-                        <h4 class="folio-item__title">The Lamp</h4>
-                    </div>
-                    <a href="https://www.behance.net/" title="Project Link" class="folio-item__project-link">Project Link</a>
-                    <div class="folio-item__caption">
-                        <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
-                    </div>
-                </div>
-            </div> <!-- end column -->
+            {% endfor %}
 
         </div> <!-- folio-list -->
 
@@ -499,7 +280,7 @@
 
             <div class="column large-full">
 
-                <div class="testimonial-slider" data-aos="fade-up">
+               <!--- <div class="testimonial-slider" data-aos="fade-up">
 
                     <div class="testimonial-slider__slide">
                         <p>
@@ -514,9 +295,9 @@
                                 <span>CEO, Apple</span>
                             </cite>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>  end testimonials__slide -->
     
-                    <div class="testimonial-slider__slide">
+                    <!--<div class="testimonial-slider__slide">
                         <p>
                         Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
                         Nisi eaque consequatur. Voluptatem dignissimos ut ducimus accusantium perspiciatis.
@@ -529,9 +310,9 @@
                                 <span>CEO, Google</span>
                             </cite>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>  end testimonials__slide -->
     
-                    <div class="testimonial-slider__slide">
+                    <!--<div class="testimonial-slider__slide">
                         <p>
                         Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
                         Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.
@@ -544,9 +325,9 @@
                                 <span>CEO, Microsoft</span>
                             </cite>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>  end testimonials__slide -->
     
-                    <div class="testimonial-slider__slide">
+                    <!--<div class="testimonial-slider__slide">
                         <p>
                         Nunc interdum lacus sit amet orci. Vestibulum dapibus nunc ac augue. Fusce vel dui. In ac felis 
                         quis tortor malesuada pretium. Curabitur vestibulum aliquam leo. Qui sed at corrupti expedita voluptas odit. 
@@ -559,9 +340,9 @@
                                 <span>CEO, Amazon</span>
                             </cite>
                         </div>
-                    </div> <!-- end testimonials__slide -->
+                    </div>  end testimonials__slide -->
 
-                </div> <!-- end testimonial slider -->
+                <!--</div>  end testimonial slider --->
                 
             </div> <!-- end column -->
 
@@ -569,30 +350,24 @@
 
 
         <!-- CTA
-        ================================================== -->
-        <div class="s-cta">
+        ================================================== 
+        <div class="s-cta">-->
 
             <div class="row">
                 <div class="column large-full">
                     <h2 class="section-desc" data-aos="fade-up">
-                        Need a great reliable web hosting?
+                        See my work on Github
                     </h2>
                 </div>
             </div>
     
             <div class="row cta-content" data-aos="fade-up">
                 <div class="column large-full">
-                    <p>
-                    We highly recommend <a href="https://www.dreamhost.com/r.cgi?287326">DreamHost</a>.
-                    Powerful web and Wordpress hosting. Guaranteed.
-                    Starting at $2.95 per month.
-                    </p>
-    
-                    <a href="https://www.dreamhost.com/r.cgi?287326" class="btn btn--primary h-full-width">Get Started</a>
+                    <a href="https://github.com/Maan17/" class="btn btn--primary h-full-width">Visit Profile</a>
                 </div>
-            </div> <!-- end cta-content -->
+            </div>--> <!-- end cta-content -->
     
-        </div> <!-- end s-cta -->
+        <!--</div>  end s-cta -->
 
 
     </section> <!-- end s-testimonials -->
@@ -604,7 +379,7 @@
         
         <div class="right-vert-line"></div>
 
-        <div class="row s-footer__main">
+         <div class="row s-footer__main">
             <div class="column large-6">
                 <div class="section-intro" data-aos="fade-up">
                     <h3 class="subhead">Get In Touch</h3>
@@ -613,10 +388,14 @@
                     Have an idea or a concept that really excite you?
                     Let's turn that idea into reality. Shoot me a message.
                     </h1>
+                    <p>
+                        Currently, I'm seeking a full time web developer/data analyst position. 
+                        If you think I'm a good fit, please contact me via mail.
+                    </p>
                 </div>
 
                 <div class="footer-email-us">
-                    <a href="{% static 'mailto:#0' %}" class="btn btn--primary h-full-width">Let's Talk</a>
+                    <a href="mailto:maansiverma8@gmail.com" class="btn btn--primary h-full-width">Let's Talk</a>
                 </div>
             </div>
 
@@ -627,15 +406,15 @@
                             Email
                         </h5>
                         <p class="footer-contact-block__content">
-                            <a href="{% static 'mailto:#0' %}">sayhello@ethos.com</a>
+                            <a href="mailto:maansiverma8@gmail.com">maansiverma8@gmail.com</a>
                         </p>
                     </div> <!-- end footer-contact-block -->
                     <div class="footer-contact-block" data-aos="fade-up">
                         <h5 class="footer-contact-block__header">
-                            Phone
+                            Linkedin
                         </h5>
                         <p class="footer-contact-block__content">
-                            <a href="{% static 'tel:+1975432345' %}">+197 543 2345</a>
+                            <a href="https://www.linkedin.com/in/maansiverma8/">LinkedIn URL</a>
                         </p>
                     </div> <!-- end footer-contact-block -->
                     <br>
@@ -644,10 +423,10 @@
                             Social
                         </h5>
                         <ul class="footer-contact-block__list">
-                            <li><a href="{% static '#0' %}">Twitter</a></li>
+                            <li><a href="{% static 'https://stackoverflow.com/users/11545896/maansi' %}">Stack Overflow</a></li>
+                            <li><a href="{% static 'https://www.hackerearth.com/@maansi3' %}">Hacker Earth</a></li>
                             <li><a href="{% static '#0' %}">Instagram</a></li>
-                            <li><a href="{% static '#0' %}">Behance</a></li>
-                            <li><a href="{% static '#0' %}">Dribbble</a></li>
+                            <li><a href="{% static '#0' %}">Twitter</a></li>
                         </ul>
                     </div> <!-- end footer-contact-block -->
                 </div>
@@ -655,9 +434,8 @@
         </div> <!-- end s-footer__main -->
 
         <div class="row s-footer__bottom">
-            <div class="column large-full ss-copyright">
-                <span>© Copyright Ethos 2019</span> 
-                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            <div class="column large-full ss-copyright"> 
+                <span>Developed by <a href="https://github.com/Maan17/">Maansi</a></span>
             </div> <!-- end ss-copyright -->
 
             <div class="ss-go-top">
