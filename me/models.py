@@ -19,7 +19,8 @@ class Two_main(models.Model):
 
 class Two_explaination(models.Model):
     features=models.CharField(max_length=20)
-    features_desc=models.CharField(max_length=50)
+    features_desc=models.CharField(max_length=250)
+    percent=models.IntegerField()
 
 class Projects(models.Model):
     image=models.ImageField(upload_to='projimg')

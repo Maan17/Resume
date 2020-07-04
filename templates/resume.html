@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <!-- script
     ================================================== -->
     <script src="{% static 'js/modernizr.js' %}"></script>
@@ -85,22 +86,23 @@
 
             <div class="column large-full">
 
-                <h1>
-                Hello, I'm Maansi, <br>
-                a backend developer <br>
-                & designer currently <br>
-                based in Varanasi.
-                </h1>
+                <h1 style="transition-delay: 100ms;font-size: 16px;font-family: SF Mono,Fira Code,Fira Mono,Roboto Mono,Lucida Console, Monaco, monospace;margin-bottom: 0px;color: #f9861a;">Hi, my name is</h1>
+                <h2 style="color: #f1ecec;transition-delay: 200ms;top: 0px;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;font-size: 50px;">Maansi.</h2>
+                <h3  style="color: #fcc999;transition-delay: 300ms;font-size: 50px;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;">I build things for the web.</h3>
 
                 <ul class="hero-social">
                     <li>
-                        <a href="https://www.linkedin.com/in/maansiverma8/" title="">Linkedin</a>
+                        <a href="https://github.com/Maan17/" title="" style="font-size:36px;color:white"><i class="fa fa-github"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.hackerearth.com/@maansi3" title="">Hackerearth</a>
+                        <a href="https://www.linkedin.com/in/maansiverma8/" title="" style="font-size:36px;color:white"><i class="fa fa-linkedin" style="font-size:36px"></i></a>
+                    </li>
+                    
+                    <li>
+                        <span class="iconify" data-icon="simple-icons:hackerearth" data-inline="false" style="color:white;font-size:36px;" ><a href="https://www.hackerearth.com/@maansi3" title="" ></a></span>
                     </li>
                     <li>
-                        <a href="https://stackoverflow.com/users/11545896/maansi" title="">Stack Overflow</a>
+                        <a href="https://stackoverflow.com/users/11545896/maansi" title=""><i class="fa fa-stack-overflow" style="font-size:36px;color:white"></i></a>
                     </li>
                 </ul> <!-- end hero-social -->
 
@@ -133,7 +135,7 @@
                     {% for abts in abt %}
                     <div class="section-intro" data-num="01" data-aos="fade-up">
                         <h3 class="subhead">About Me</h3>
-                        <h1 class="display-1">{{ abts.head }}</h1>
+                        <h1 class="display-1" style="color:#1f1d1d;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;font-size: 36px; ">{{ abts.head }}</h1>
                     </div>
 
                     <div class="profile-pic" data-aos="fade-up">
@@ -142,20 +144,70 @@
 
                     <h3 data-aos="fade-up">Profile</h3>
 
-                    <p data-aos="fade-up">
-                    {{ abts.about }} 
+                    <p data-aos="fade-up" style="transition-delay:300ms;font-family: Calibre, San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;
+                                        font-size: 20px; color: #6e3404">
+                        {{ abts.about }}
                     </p>
                     {% endfor %}
                 </div>
             </div>
 
         </div> <!-- end s-about__section--profile -->
+            <!-- services
+    ================================================== -->
+    <section id="services" class="s-services target-section h-dark-bg">
+        
+        <div class="row s-services__content">
 
-        <div class="s-about__section">
+            <div class="vert-line"></div>
+            
+            <div class="column large-6 s-services__leftcol">
+                <div class="section-intro" data-num="02" data-aos="fade-up">
+                    <h3 class="subhead">Skills</h3>
+                    {% for twos in two1 %}
+                    <h1 class="display-1">
+                    {{twos.header}}
+                    </h1>
+                </div>
+
+                <p class="lead" data-aos="fade-up">
+                    {{twos.desc}}
+                </p>
+                <a href="mailto:maansiverma8@gmail.com" class="btn btn--primary">HIRE ME</a>
+            </div> <!-- end  s-services--leftcol -->
+            {% endfor %}
+            <div class="column large-6">
+                <ul class="services-list" data-aos="fade-up">
+                    {% for two in two2 %}
+                    <li class="services-list__item">
+                        <div class="services-list__item-header">
+                            <h5>{{two.features}}</h5>
+                        </div>
+                        <div class="services-list__item-body">
+                            <progress style="background-color:#f9861a;" value = "{{two.percent}}" max = "100" ></progress><span>  {{two.percent}}%</span>
+                            <h3 style="color:#f9861a">Technologies</h3>
+                            <p>
+                                {{two.features_desc}}
+                            </p>
+                        </div>
+                    </li>
+                    {% endfor %} 
+                </ul> <!-- end services-list -->
+            </div>
+
+        </div> <!-- s-services__content -->
+
+    </section> <!-- end s-services -->
+
+
+    <!-- portfolio
+    ================================================== -->
+
+        <div class="s-about__section" style="margin-top: 100px;">
 
             <div class="row">
                 <div class="column">
-                    <h3 data-aos="fade-up">Career</h3>
+                    <h1 data-aos="fade-up">Internships</h1>
                 </div>
             </div>
 
@@ -188,52 +240,7 @@
     </section> <!-- end s-about -->
 
 
-    <!-- services
-    ================================================== -->
-    <section id="services" class="s-services target-section h-dark-bg">
-        
-        <div class="row s-services__content">
 
-            <div class="vert-line"></div>
-            
-            <div class="column large-6 s-services__leftcol">
-                <div class="section-intro" data-num="02" data-aos="fade-up">
-                    <h3 class="subhead">Expertise</h3>
-                    {% for twos in two1 %}
-                    <h1 class="display-1">
-                    {{twos.header}}
-                    </h1>
-                </div>
-
-                <p class="lead" data-aos="fade-up">
-                    {{twos.desc}}
-                </p>
-            </div> <!-- end  s-services--leftcol -->
-            {% endfor %}
-            <div class="column large-6">
-                <ul class="services-list" data-aos="fade-up">
-                    {% for two in two2 %}
-                    <li class="services-list__item">
-                        <div class="services-list__item-header">
-                            <h5>{{two.features}}</h5>
-                        </div>
-                        <div class="services-list__item-body">
-                            <p>
-                                {{two.features_desc}}
-                            </p>
-                        </div>
-                    </li>
-                    {% endfor %} 
-                </ul> <!-- end services-list -->
-            </div>
-
-        </div> <!-- s-services__content -->
-
-    </section> <!-- end s-services -->
-
-
-    <!-- portfolio
-    ================================================== -->
     <section id="portfolio" class="s-portfolio target-section">
 
         <div class="row s-portfolio__header">
