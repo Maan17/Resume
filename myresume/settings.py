@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')&-8%6-b%1=alwiu4f+k-izktj+5xtr#iw9r6811m4a)!_%34f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 CACHES = {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',}}
 # Application definition
@@ -69,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myresume.wsgi.application'
+#WSGI_APPLICATION = 'myresume.wsgi.application'
 
 
 # Database
@@ -77,11 +78,12 @@ WSGI_APPLICATION = 'myresume.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'resume',
-        'USER':'postgres',
-        'PASSWORD':'gateexam',
-        'HOST':'localhost',
+        'USER': 'postgres',
+        'PASSWORD': 'gateexam',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -135,3 +137,8 @@ STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
