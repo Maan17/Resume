@@ -26,7 +26,11 @@ SECRET_KEY = ')&-8%6-b%1=alwiu4f+k-izktj+5xtr#iw9r6811m4a)!_%34f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
+=======
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+>>>>>>> 716e930
 
 CACHES = {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',}}
 # Application definition
@@ -79,12 +83,19 @@ TEMPLATES = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'resume',
+<<<<<<< HEAD
         'USER':'postgres',
         'PASSWORD':'gateexam',
         'HOST':'localhost',
         'PORT':'',
+=======
+        'USER': 'postgres',
+        'PASSWORD': 'gateexam',
+        'HOST': 'localhost',
+        'PORT': '',
+>>>>>>> 716e930
     }
 }
 
