@@ -7,7 +7,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Cosmo</title>
+    <title>Maansi</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -52,7 +52,7 @@
     <!-- header
     ================================================== -->
     <header class="s-header">
-
+        
         <div class="header-logo">
             <a href="{% static 'index.html' %}">
                 <img src="{% static 'images/logo.svg' %}" alt="Homepage">
@@ -71,7 +71,7 @@
                 </ul>
             </nav> <!-- end header-nav-wrap -->
 
-            <a href="{% static 'Maansi resume1.pdf' %}" class="btn btn--stroke btn--small' %}">Download CV</a>
+            <a href="{% static 'Maansi resume1.pdf' %}" class="btn btn--stroke btn--small">Download CV</a>
 
         </div> <!-- end header-content -->
 
@@ -86,9 +86,9 @@
 
             <div class="column large-full">
 
-                <h1 style="transition-delay: 100ms;font-size: 16px;font-family: SF Mono,Fira Code,Fira Mono,Roboto Mono,Lucida Console, Monaco, monospace;margin-bottom: 0px;color: #f9861a;">Hi, my name is</h1>
-                <h2 style="color: #f1ecec;transition-delay: 200ms;top: 0px;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;font-size: 50px;">Maansi.</h2>
-                <h3  style="color: #fcc999;transition-delay: 300ms;font-size: 50px;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;">I build things for the web.</h3>
+                <h1 style="transition-delay: 100ms;font-size: 25px;font-family: SF Mono,Fira Code,Fira Mono,Roboto Mono,Lucida Console, Monaco, monospace;margin-bottom: 0px;color: #ffbf00;">Hi, my name is</h1>
+                <h2 style="color: #f1ecec;transition-delay: 200ms;top: 0px;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;font-size: 70px;">Maansi.</h2>
+                <h3  style="color: #ffcea0;transition-delay: 300ms;font-size: 70px;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;">I build things for the web.</h3>
 
                 <ul class="hero-social">
                     <li>
@@ -108,7 +108,7 @@
 
             </div> 
             <div class="column large-full">
-                <a href="maansiverma8@gmail.com" class="btn btn--primary">Get in Touch</a>
+                <a href="mailto:maansiverma8@gmail.com" class="btn btn--primary">Get in Touch</a>
             </div>
         </div> <!-- end hero-content -->
 
@@ -136,6 +136,7 @@
                     <div class="section-intro" data-num="01" data-aos="fade-up">
                         <h3 class="subhead">About Me</h3>
                         <h1 class="display-1" style="color:#1f1d1d;font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;font-size: 36px; ">{{ abts.head }}</h1>
+                        
                     </div>
 
                     <div class="profile-pic" data-aos="fade-up">
@@ -148,13 +149,18 @@
                                         font-size: 20px; color: #6e3404">
                         {{ abts.about }}
                     </p>
+                    <p style="transition-delay: 100ms;color: #f9861a ; font-size: 20px;font-family: SF Mono,Fira Code,Fira Mono,Roboto Mono,Lucida Console, Monaco, monospace;margin-bottom: 0px">Currently, I'm seeking a full-time web developer/data analyst position. If you think I'm a good fit, please contact me via</p>
+                    <a href="mailto:maansiverma8@gmail.com" style="color:rgb(72, 214, 219);">maansiverma8@gmail.com</a>
                     {% endfor %}
                 </div>
             </div>
 
         </div> <!-- end s-about__section--profile -->
             <!-- services
-    ================================================== -->
+            
+       ================================================== -->
+    </section>
+
     <section id="services" class="s-services target-section h-dark-bg">
         
         <div class="row s-services__content">
@@ -195,37 +201,38 @@
                 </ul> <!-- end services-list -->
             </div>
 
-        </div> <!-- s-services__content -->
+        </div>
+        
 
     </section> <!-- end s-services -->
 
 
     <!-- portfolio
     ================================================== -->
+    <section id="about" class="s-about target-section" >
+        <div class="s-about__section"  >
 
-        <div class="s-about__section" style="margin-top: 100px;">
-
-            <div class="row">
+            <div class="row" >
                 <div class="column">
-                    <h1 data-aos="fade-up">Internships</h1>
+                    <h1 data-aos="fade-up" style="color:#F06000 ;">Internships</h1>
                 </div>
             </div>
 
-            <div class="row block-large-1-2 block-900-full work-positions">
+            <div class="row block-large-1-2 block-900-full work-positions" >
                 {% for careers in career %}
                 <div class="column" data-aos="fade-up">
                     <div class="position">
                         <div class="position__header">
                             <h6>
-                                <span class="position__co">{{careers.company}}</span>
-                                <span class="position__pos">{{careers.post}}</span>
+                                <span class="position__co" style="font-family:Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue,Segoe UI, Arial, sans-serif;">{{careers.company}}</span>
+                                <span class="position__pos" style="color:#f9861a ;font-family:Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue,Segoe UI, Arial, sans-serif;">{{careers.post}}</span>
                             </h6>
-                            <div class="position__timeframe">
+                            <div class="position__timeframe" style="color:#6e3404">
                                 {{careers.duration}}
                             </div>
                         </div>
 
-                        <p>
+                        <p style="font-family:Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto, Helvetica Neue,Segoe UI, Arial, sans-serif;">
                             {{careers.job_desc}} 
                         </p>
                     </div>
@@ -247,7 +254,7 @@
             <div class="column large-6 medium-8 tab-full">
                 <div class="section-intro" data-num="03" data-aos="fade-up">
                     <h3 class="subhead">Portfolio</h3>
-                    <h1 class="display-1">
+                    <h1 class="display-1" style="font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;">
                         A selection of recent projects I have worked on.
                     </h1>
                 </div>
@@ -280,14 +287,14 @@
 
 
     <!-- testimonials
-    ================================================== -->
-    <section id="testimonials" class="s-testimonials">
+    ================================================== 
+    <section id="testimonials" class="s-testimonials">-->
 
-        <div class="row collapse">
+        <!---<div class="row collapse">
 
             <div class="column large-full">
 
-               <!--- <div class="testimonial-slider" data-aos="fade-up">
+                <div class="testimonial-slider" data-aos="fade-up">
 
                     <div class="testimonial-slider__slide">
                         <p>
@@ -300,21 +307,6 @@
                             <cite class="testimonial-slider__cite">
                                 <strong>Tim Cook</strong>
                                 <span>CEO, Apple</span>
-                            </cite>
-                        </div>
-                    </div>  end testimonials__slide -->
-    
-                    <!--<div class="testimonial-slider__slide">
-                        <p>
-                        Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
-                        Nisi eaque consequatur. Voluptatem dignissimos ut ducimus accusantium perspiciatis.
-                        Quasi voluptas eius distinctio. Atque eos maxime.
-                        </p>
-                        <div class="testimonial-slider__author">
-                            <img src="{% static 'images/avatars/user-01.jpg' %}" alt="Author image" class="testimonial-slider__avatar">
-                            <cite class="testimonial-slider__cite">
-                                <strong>Sundar Pichai</strong>
-                                <span>CEO, Google</span>
                             </cite>
                         </div>
                     </div>  end testimonials__slide -->
@@ -334,50 +326,18 @@
                         </div>
                     </div>  end testimonials__slide -->
     
-                    <!--<div class="testimonial-slider__slide">
-                        <p>
-                        Nunc interdum lacus sit amet orci. Vestibulum dapibus nunc ac augue. Fusce vel dui. In ac felis 
-                        quis tortor malesuada pretium. Curabitur vestibulum aliquam leo. Qui sed at corrupti expedita voluptas odit. 
-                        Nihil ea quia nesciunt. Ducimus aut sed ipsam.
-                        </p>
-                        <div class="testimonial-slider__author">
-                            <img src="{% static 'images/avatars/user-05.jpg' %}" alt="Author image" class="testimonial-slider__avatar">
-                            <cite class="testimonial-slider__cite">
-                                <strong>Jeff Bezos</strong>
-                                <span>CEO, Amazon</span>
-                            </cite>
-                        </div>
-                    </div>  end testimonials__slide -->
-
                 <!--</div>  end testimonial slider --->
                 
-            </div> <!-- end column -->
+            <!-- </div>  end column -->
 
-        </div> <!-- end row -->
+        <!-- </div>  end row -->
 
 
         <!-- CTA
-        ================================================== 
-        <div class="s-cta">-->
+        ================================================== -->
+        
 
-            <div class="row">
-                <div class="column large-full">
-                    <h2 class="section-desc" data-aos="fade-up">
-                        See my work on Github
-                    </h2>
-                </div>
-            </div>
-    
-            <div class="row cta-content" data-aos="fade-up">
-                <div class="column large-full">
-                    <a href="https://github.com/Maan17/" class="btn btn--primary h-full-width">Visit Profile</a>
-                </div>
-            </div>--> <!-- end cta-content -->
-    
-        <!--</div>  end s-cta -->
-
-
-    </section> <!-- end s-testimonials -->
+     <!-- end s-testimonials -->
 
 
     <!-- footer
@@ -391,18 +351,15 @@
                 <div class="section-intro" data-aos="fade-up">
                     <h3 class="subhead">Get In Touch</h3>
 
-                    <h1 class="display-1">
+                    <h1 class="display-1" style="font-family: Calibre,San Francisco,SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Roboto,Helvetica Neue,Segoe UI, Arial, sans-serif;">
                     Have an idea or a concept that really excite you?
                     Let's turn that idea into reality. Shoot me a message.
                     </h1>
-                    <p>
-                        Currently, I'm seeking a full time web developer/data analyst position. 
-                        If you think I'm a good fit, please contact me via mail.
-                    </p>
+                    
                 </div>
 
                 <div class="footer-email-us">
-                    <a href="mailto:maansiverma8@gmail.com" class="btn btn--primary h-full-width">Let's Talk</a>
+                    <a href="mailto:maansiverma8@gmail.com" class="btn btn--prim h-full-width">Let's Talk</a>
                 </div>
             </div>
 
@@ -442,7 +399,7 @@
 
         <div class="row s-footer__bottom">
             <div class="column large-full ss-copyright"> 
-                <span>Developed by <a href="https://github.com/Maan17/">Maansi</a></span>
+                <span>Developed & Designed by <a href="https://github.com/Maan17/">Maansi</a></span>
             </div> <!-- end ss-copyright -->
 
             <div class="ss-go-top">
