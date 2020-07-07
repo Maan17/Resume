@@ -1,24 +1,4 @@
-/* =================================================================== 
- *  Ethos Vendor/Third Party CSS
- *  Template Ver. 1.0.0 
- *  11-05-2019
- *  ------------------------------------------------------------------
- *
- *  TOC:
- *  # Animate On Scroll 
- *  # Slick Slider
- *  # prettyprint GitHub Theme
- *  # PhotoSwipe main CSS
- *  # PhotoSwipe Skin
- *
- * =================================================================== */
 
-
-
-/* ===================================================================
- * # Animate On Scroll 
- * https://michalsnik.github.io/aos/
- * ------------------------------------------------------------------- */
 [data-aos][data-aos][data-aos-duration="50"],
 body[data-aos-duration="50"] [data-aos] {
   -webkit-transition-duration: 50ms;
@@ -1974,13 +1954,13 @@ over element that should close gallery
 
 @media (-webkit-min-device-pixel-ratio:1.1), (-webkit-min-device-pixel-ratio:1.09375), (min-resolution:105dpi), (min-resolution:1.1dppx) {
 
-  /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
+  /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi
   .pswp--svg .pswp__button,
   .pswp--svg .pswp__button--arrow--left:before,
   .pswp--svg .pswp__button--arrow--right:before {
     background-image: url(images/photoswipe/default-skin.svg);
   }
-
+ */
   .pswp--svg .pswp__button--arrow--left,
   .pswp--svg .pswp__button--arrow--right {
     background: none;

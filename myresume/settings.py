@@ -24,13 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')&-8%6-b%1=alwiu4f+k-izktj+5xtr#iw9r6811m4a)!_%34f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
-=======
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
->>>>>>> 716e930
 
 CACHES = {'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache',}}
 # Application definition
@@ -55,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'myresume.urls'
@@ -85,17 +82,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'resume',
-<<<<<<< HEAD
-        'USER':'postgres',
-        'PASSWORD':'gateexam',
-        'HOST':'localhost',
-        'PORT':'',
-=======
         'USER': 'postgres',
         'PASSWORD': 'gateexam',
         'HOST': 'localhost',
         'PORT': '',
->>>>>>> 716e930
     }
 }
 
@@ -149,6 +139,7 @@ STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+LOGIN_REDIRECT_URL='/'
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
